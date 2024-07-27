@@ -1,14 +1,17 @@
 class GameModel {
     constructor() {
         this.score = 0;
-        this.timeLeft = 30; // Game duration in seconds
-        this.board = Array(12).fill(0);
+        this.timeLeft = 30; 
+        this.boardSize = 12;
+        this.board = Array(this.boardSize).fill(null);
     }
 
     increaseScore() {
         this.score += 1;
     }
-
+    decreaseTime() {
+        this.timeLeft -= 1;
+    }
     getScore() {
         return this.score;
     }
@@ -21,22 +24,24 @@ class GameModel {
         return this.board;
     }
 
-    randomMole() {
-        return Math.floor(Math.random() * 9);
+    getMoleCount() {
+        return this.board.filter(cell => cell === 1).length;
     }
 
-    showMole(index) {
-        this.board[index] = 'mole';
+    spawnMole() {
+        const emptyCells = this.board.map((cell, index) => cell === null ? index : null).filter(cell => cell !== null);
+        const randomIndex = emptyCells[Math.floor(Math.random() * emptyCells.length)];
+        this.board[emptyCells[randomIndex]] = 1;
     }
 
     hideMole(index) {
-        this.board[index] = 0;
+        this.board[index] = null;
     }
 
     resetGame() {
         this.score = 0;
-        this.timeLeft = 60;
-        this.board = Array(9).fill(0);
+        this.timeLeft = 30;
+        this.board = Array(this.boardSize).fill(null);
     }
 }
 export default GameModel;

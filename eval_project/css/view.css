@@ -1,3 +1,9 @@
+header {
+    text-align: center;
+    font-size: 24px;
+    margin-top: 20px;
+}
+
 .gameBoard {
     display: grid;
     grid-template-columns: repeat(3, 1fr);

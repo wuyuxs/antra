@@ -1,24 +1,34 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Whac-A-Mole</title>
     <link rel="stylesheet" href="css/view.css">
 </head>
+
 <body>
-    <h1>Whac-A-Mole</h1>
-    <div id="score">Score: 0</div>
-    <div id="time">Time Left: 60s</div>
-    <div id="game-board"></div>
-    <script type="module">
-        import { GameController } from './js/controller.js';
-        import { GameModel } from './js/model.js';
-        import { GameView } from './js/view.js';
-        document.addEventListener('DOMContentLoaded', () => {
-            const gameController = new GameController();
-            gameController.init();
-        });
-    </script>
+    <header>
+        <h1>Welcome to Whac-A-Mole</h1>
+        <div id="score">Let's go! Your Score is: 0</div>
+        <button id="start">Start</button>
+    </header>
+    <div class="timer">
+        <div>Time Left:</div>
+        <div id="time"></div>
+    </div>
+    <div id="game-board">
+        <script type="module">
+            import { GameController } from './js/controller.js';
+            import { GameModel } from './js/model.js';
+            import { GameView } from './js/view.js';
+            document.addEventListener('DOMContentLoaded', () => {
+                const gameController = new GameController();
+                gameController.init();
+            });
+        </script>
+    </div>
 </body>
+
 </html>

@@ -12,19 +12,28 @@ class GameController {
     init() {
         this.view.bindCellClickHandler(this.handleCellClick.bind(this));
         this.view.renderBoard(this.model.getBoard());
+        this.view.bindButtonClickHandler(this.startGame.bind(this));
         this.updateView();
-        this.startGame();
     }
 
     startGame() {
+        console.log('Game started');
+        this.model.resetGame();
+        this.updateView();
+        clearInterval(this.moleIntervalId);
+        clearInterval(this.timerIntervalId);
         this.moleIntervalId = setInterval(this.updateMole.bind(this), 1000);
         this.timerIntervalId = setInterval(this.updateTimer.bind(this), 1000);
     }
 
     updateMole() {
-        const index = this.model.randomMole();
-        this.model.hideMole(index);
-        this.model.showMole(index);
+        if (this.model.getMoleCount() < 2) {
+            this.model.spawnMole();
+            this.model.spawnMole();
+        } else if (this.model.getMoleCount() < 3) {
+            this.model.spawnMole();
+        }
+        console.log(this.model.getBoard());
         this.updateView();
     }
 
@@ -41,7 +50,7 @@ class GameController {
     }
 
     handleCellClick(index) {
-        if (this.model.getBoard()[index] === 'mole') {
+        if (this.model.getBoard()[index] === 1) {
             this.model.hideMole(index);
             this.model.increaseScore();
             this.updateView();
