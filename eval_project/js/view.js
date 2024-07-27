@@ -1,6 +1,6 @@
 class GameView {
     constructor() {
-        this.gameBoardElement = document.getElementById('game-board');
+        this.gameBoardElement = document.getElementById('gameBoard');
         this.scoreElement = document.getElementById('score');
         this.timeElement = document.getElementById('time');
         this.buttonElement = document.getElementById('start');
@@ -10,9 +10,13 @@ class GameView {
         this.gameBoardElement.innerHTML = '';
         board.forEach((cell, index) => {
             const cellElement = document.createElement('div');
-            cellElement.classList.add('mole-hole');
-            cellElement.textContent = cell ? 'placeholder' : '';
-            cellElement.addEventListener('click', () => this.handleCellClick(index));
+            cellElement.classList.add('cell');
+            if (cell) {
+                cellElement.classList.add('mole');
+                cellElement.addEventListener('click', () => this.handleCellClick(index));
+            } else {
+                cellElement.classList.add('hole');
+            }
             this.gameBoardElement.appendChild(cellElement);
         });
     }
