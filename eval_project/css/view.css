@@ -1,0 +1,46 @@
+.gameBoard {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 10px;
+    width: 400px;
+    height: 400px;
+    margin: 0 auto;
+}
+
+.mole {
+    width: 400px;
+    height: 400px;
+    background-color: #000;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+.scoreBoard {
+    text-align: center;
+    font-size: 24px;
+    margin-top: 20px;
+}
+
+.timer {
+    text-align: center;
+    font-size: 24px;
+    margin-top: 20px;
+    position: absolute;
+    top: 0;
+    right: 0;
+
+}
+
+.holeGrid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 10px;
+    width: 300px;
+    margin: 0 auto;
+}
+
+.gameHeader {
+    text-align: center;
+    font-size: 24px;
+    margin-top: 20px;
+}
