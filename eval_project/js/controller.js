@@ -68,9 +68,10 @@ class GameController {
             clearInterval(this.moleIntervalId);
             clearInterval(this.timerIntervalId);
             clearInterval(this.snakeIntervalId);
+            alert('Game Over! Don\'t Step on the Snake!')
         }
         this.updateView();
-        alert('Game Over! Don\'t Step on the Snake!')
+        
     }
 
     updateView() {
