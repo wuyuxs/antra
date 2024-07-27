@@ -34,6 +34,18 @@ class GameModel {
         this.board[emptyCells[randomIndex]] = 1;
     }
 
+    spawnSnake() {
+        const oldSnake = this.board.indexOf(2);
+        const emptyCells = this.board.map((cell, index) => cell === null ? index : null).filter(cell => cell !== null);
+        const randomIndex = emptyCells[Math.floor(Math.random() * emptyCells.length)];
+        this.board[oldSnake] = null;
+        this.board[emptyCells[randomIndex]] = 2;
+    }
+
+    fillSnake() {
+        this.board = Array(this.boardSize).fill(2)
+    }
+
     hideMole(index) {
         this.board[index] = null;
     }

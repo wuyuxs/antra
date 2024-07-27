@@ -11,10 +11,13 @@ class GameView {
         board.forEach((cell, index) => {
             const cellElement = document.createElement('div');
             cellElement.classList.add('cell');
-            if (cell) {
+            if (cell === 1) {
                 cellElement.classList.add('mole');
                 cellElement.addEventListener('click', () => this.handleCellClick(index));
-            } else {
+            } else if (cell === 2){
+                cellElement.classList.add('snake');
+                cellElement.addEventListener('click', () => this.handleCellClick(index));
+            } else{
                 cellElement.classList.add('hole');
             }
             this.gameBoardElement.appendChild(cellElement);

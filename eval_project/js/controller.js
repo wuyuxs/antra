@@ -7,6 +7,7 @@ class GameController {
         this.view = new GameView();
         this.moleIntervalId = null;
         this.timerIntervalId = null;
+        this.snakeIntervalId = null;
     }
 
     init() {
@@ -22,8 +23,10 @@ class GameController {
         this.updateView();
         clearInterval(this.moleIntervalId);
         clearInterval(this.timerIntervalId);
+        clearInterval(this.snakeIntervalId);
         this.moleIntervalId = setInterval(this.updateMole.bind(this), 1000);
         this.timerIntervalId = setInterval(this.updateTimer.bind(this), 1000);
+        this.snakeIntervalId = setInterval(this.updateSnake.bind(this), 2000);
     }
 
     updateMole() {
@@ -43,18 +46,31 @@ class GameController {
         if (this.model.getTimeLeft() <= 0) {
             clearInterval(this.moleIntervalId);
             clearInterval(this.timerIntervalId);
+            clearInterval(this.snakeIntervalId);
             alert('Game Over! Your score is ' + this.model.getScore());
             this.model.resetGame();
             this.updateView();
         }
+    }
+    updateSnake() {
+        this.model.spawnSnake();
+        this.updateView();
     }
 
     handleCellClick(index) {
         if (this.model.getBoard()[index] === 1) {
             this.model.hideMole(index);
             this.model.increaseScore();
-            this.updateView();
         }
+        if (this.model.getBoard()[index] === 2) {
+            this.model.fillSnake();
+            this.updateView();
+            clearInterval(this.moleIntervalId);
+            clearInterval(this.timerIntervalId);
+            clearInterval(this.snakeIntervalId);
+        }
+        this.updateView();
+        alert('Game Over! Don\'t Step on the Snake!')
     }
 
     updateView() {
