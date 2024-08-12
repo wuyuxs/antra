@@ -36,7 +36,6 @@ class GameController {
         } else if (this.model.getMoleCount() < 3) {
             this.model.spawnMole();
         }
-        console.log(this.model.getBoard());
         this.updateView();
     }
 
