@@ -1,8 +1,15 @@
+<h1>{{welcomeMsg}}</h1>
 <form [formGroup]="profileForm">
   <label for="name">Name:</label>
-  <input type="text" id="name" formControlName="userName">
+  <input type="text" id="name" formControlName="userName" placeholder="Enter Your Name">
   <label for="email">Email:</label>
-  <input type="email" id="email" formControlName="email">
+  <input type="email" id="email" formControlName="email" placeholder="Enter Your Email">
   <label for="bio">Bio:</label>
-  <input type="text" id="bio" formControlName="bio">
+  <textarea type="text" id="bio" formControlName="bio" placeholder="Tell me about yourself"></textarea>
+  <button (click)="saveProfile()" class="form-button">Save</button>
+  <button (click)="resetProfile()" class="form-button" id="reset-button" [disabled]="disableReset">Reset</button>
 </form>
+<p class="user-profile">User Name: {{profile.userName}}</p>
+<p class="user-profile">Email: {{profile.email}}</p>
+<p class="user-profile">Bio: {{profile.bio}}</p>
+<p class="submit-counter">{{counter}}</p>
