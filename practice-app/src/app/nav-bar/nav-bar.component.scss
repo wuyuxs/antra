@@ -1,0 +1,50 @@
+nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 60px; /* Set the height of the nav */
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 20px; /* Adds padding on the sides */
+  background-color: rgb(170, 75, 50);/* Dark red */
+  color: #fff;
+  // z-index: 1000; /* Ensures the nav stays above other content */
+}
+
+a {
+  text-decoration: none;
+  color: #fff;
+  font-size: 1.5rem;
+  line-height: 60px; /* Vertically centers the text within the nav bar */
+}
+
+.button-container {
+  display: flex;
+  height: 100%;
+  gap: 10px; /* Small distance between buttons */
+  align-items: center;
+}
+button {
+  height: 100%; /* Ensure the custom button component fills the container height */
+  display: flex;
+  align-items: center;
+  background-color: rgb(170, 75, 50); /* Dark red */
+  color: white;
+  border: none;
+  height: 100%;
+  box-sizing: border-box;
+  padding: 0px 20px;
+  cursor: pointer;
+  border-radius: 4px;
+  transition: background-color 0.3s ease;
+
+  &:hover {
+    background-color: rgb(205, 113, 90);
+  }
+}
+
+app-nav-bar-button:last-child {
+  margin-right: 20px; /* Adds space between the last button and the right edge */
+}
