@@ -10,7 +10,7 @@ nav {
   padding: 0 20px; /* Adds padding on the sides */
   background-color: rgb(170, 75, 50);/* Dark red */
   color: #fff;
-  // z-index: 1000; /* Ensures the nav stays above other content */
+  z-index: 1000; /* Ensures the nav stays above other content */
 }
 
 a {
@@ -23,8 +23,8 @@ a {
 .button-container {
   display: flex;
   height: 100%;
-  gap: 10px; /* Small distance between buttons */
   align-items: center;
+  margin-right: 40px;
 }
 button {
   height: 100%; /* Ensure the custom button component fills the container height */
@@ -34,17 +34,15 @@ button {
   color: white;
   border: none;
   height: 100%;
-  box-sizing: border-box;
   padding: 0px 20px;
   cursor: pointer;
-  border-radius: 4px;
   transition: background-color 0.3s ease;
 
   &:hover {
-    background-color: rgb(205, 113, 90);
+    background-color: rgb(200, 85, 60);
+  }
+  &.active {
+    background-color: rgb(200, 85, 60);
   }
 }
 
-app-nav-bar-button:last-child {
-  margin-right: 20px; /* Adds space between the last button and the right edge */
-}

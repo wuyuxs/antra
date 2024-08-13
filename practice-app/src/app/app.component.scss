@@ -1,0 +1,10 @@
+/* Add top padding or margin to the main content to avoid overlap with the fixed navbar */
+body, html {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+}
+
+.main-page{
+  margin-top: 60px; /* Match the navbar height to avoid overlap */
+}
